@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 
+// The Google Form URL
+const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeb7GSwJJlvJoB0F83qBGDxlJyJZW1Wb6JXb3Qfk5c10DDxvg/viewform";
+
 const InternshipSection = () => {
   return (
     <motion.div
@@ -28,9 +31,12 @@ const InternshipSection = () => {
         <p className="text-gray-700 mt-4 text-lg">
           Work on live projects, learn from mentors, and grow your tech career the practical way. We’re here to help you level up.
         </p>
-        <button className="mt-6 px-8 py-3 bg-purple-600 text-white text-base font-semibold rounded-xl hover:bg-purple-700 transition-all duration-300">
-          Explore Internships
-        </button>
+        <button 
+            className="mt-4 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition duration-300"
+            onClick={() => window.open(formUrl, "_blank")} // Open Google Form link in a new tab
+          >
+            Enroll Now
+          </button>
       </div>
     </motion.div>
   );

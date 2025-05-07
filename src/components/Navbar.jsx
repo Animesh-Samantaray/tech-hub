@@ -3,34 +3,41 @@ import { IoMdMenu } from "react-icons/io";
 import { IoIosArrowRoundForward } from 'react-icons/io';
 import Logo from '../assets/skill-logo.png'
 import '../App.css';
+import Login from "./Login";
+import { useNavigate } from "react-router";
 const NavbarMenu = [
     {
-        id: 1,
-        title: "Home",
-        path: "/",
+      id: 1,
+      title: "Home",
+      path: "/",
+      external: false,
     },
     {
-        id: 2,
-        title: "Services",
-        link: "#",
+      id: 2,
+      title: "Services",
+      path: "/Service",
+      external: false,
     },
     {
-        id: 3,
-        title: "About us",
-        link: "#",
+      id: 3,
+      title: "Courses",
+      path: "https://3skill.shop/collections/web-development-mastery-with-100-internship-govt-verified-certificate",
+      external: true,
     },
     {
-        id: 4,
-        title: "Our Team",
-        link: "#",
+      id: 4,
+      title: "Contact Us",
+      path: "/contact",
+      external: false,
     },
-    {
-        id: 5,
-        title: "Contact Us",
-        link: "#",
-    },
-];
+  ];
+  
 const Navbar = () => {
+    const navigate = useNavigate();
+     const signIn=(e)=>{
+        e.preventDefault(); 
+        navigate("/login"); 
+    }
     return (
         <nav className="relative z-20 ">
             <div className="container py-10 flex justify-between items-center">
@@ -57,7 +64,10 @@ const Navbar = () => {
                         <li>
                             <button className="inline-block bg-[#f7ba34] text-white font-semibold py-2 px-6 rounded-lg 
                                         hover:bg-[#69a79c] duration-200 shadow-[0px_10px_8px_-7px_#ffd978] 
-                                        hover:shadow-[0px_10px_8px_-7px_#69a79c]">
+                                        hover:shadow-[0px_10px_8px_-7px_#69a79c] cursor-pointer"
+                                        
+                                        onClick={signIn}
+                                        >
                                 Sign in
                             </button></li>
                     </ul>
@@ -71,10 +81,5 @@ const Navbar = () => {
     );
 };
 
-// primary-#f7ba34
-// secondary- #69a79c
-// light-#f7f7f7
-// dark-#333333
-// dark2-#999999
 
 export default Navbar;
