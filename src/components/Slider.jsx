@@ -3,17 +3,17 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const students = [
   {
-    name: "Pradeep Kumar Singha",
+    name: "Aniyash",
     photo: "https://randomuser.me/api/portraits/men/75.jpg",
     role: "3 SKILL (Design & Data Analysis Intern)",
   },
   {
-    name: "Anjali Sharma",
+    name: "Liza Henry",
     photo: "https://randomuser.me/api/portraits/women/52.jpg",
     role: "Wipro (Frontend Developer Intern)",
   },
   {
-    name: "Rahul Mehta",
+    name: "Virat Kohli",
     photo: "https://randomuser.me/api/portraits/men/48.jpg",
     role: "TCS (Backend Developer Intern)",
   },
