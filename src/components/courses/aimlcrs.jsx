@@ -4,105 +4,73 @@ import { motion } from 'framer-motion';
 const Aimlcrs = () => {
   return (
     <motion.div 
-      className="w-full min-h-screen bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 py-16 px-4"
+      className="w-full min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-indigo-200 py-10 px-2"
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
-      transition={{ duration: 1.5 }} 
+      transition={{ duration: 1.2 }} 
     >
-      {/* Container for the course section */}
+      {/* Main Card */}
       <motion.div 
-        className="w-full max-w-5xl bg-white shadow-xl rounded-xl overflow-hidden mx-auto"
-        initial={{ scale: 0.95 }} 
+        className="w-full max-w-4xl bg-white shadow-lg rounded-2xl mx-auto overflow-hidden"
+        initial={{ scale: 0.97 }} 
         animate={{ scale: 1 }} 
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.6 }}
       >
-        
-        {/* Top Section with Image, Title, and Price */}
+        {/* Header Section */}
         <div className="relative">
-          <motion.img 
-            src="https://source.unsplash.com/1600x900/?artificial-intelligence,ai,machine-learning" 
+          <img 
+            src="https://t3.ftcdn.net/jpg/09/33/83/82/360_F_933838289_TS8PCfgl9RFC1Z6dRwkpxpsG9gSgObnB.jpg" 
             alt="AI & Machine Learning" 
-            className="w-full h-96 object-cover rounded-t-xl sm:h-72 md:h-80 lg:h-96"
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ duration: 1, delay: 0.5 }}
+            className="w-full h-56 sm:h-64 md:h-80 object-cover rounded-t-2xl"
           />
-          <div className="absolute top-1/4 left-0 w-full text-center text-white px-6 sm:top-1/3 md:top-1/4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 animate-pulse-glow text-yellow-400">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 rounded-t-2xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow">
               AI & Machine Learning
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-200">Unlock the Future of Technology</p>
-            <p className="text-md sm:text-lg md:text-xl font-medium mt-4 text-green-500">$199.99</p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-100 font-medium">
+              Unlock the Future of Technology
+            </p>
+            <span className="inline-block mt-3 px-4 py-1 bg-green-100 text-green-700 font-semibold rounded-full text-base shadow-sm w-fit">
+              $199.99
+            </span>
           </div>
         </div>
 
-        {/* Course Description Section */}
-        <motion.div 
-          className="p-8 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-200"
-          initial={{ y: 30, opacity: 0 }} 
-          animate={{ y: 0, opacity: 1 }} 
-          transition={{ duration: 1, delay: 0.7 }}
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
+        {/* Course Content */}
+        <div className="p-6 sm:p-10 bg-gradient-to-br from-gray-50 via-gray-100 to-white">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
             What This Course Offers
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6">
-            Dive into the world of AI and Machine Learning with cutting-edge technologies! Our course will equip you with
-            the knowledge to understand and apply AI & ML in real-world applications. You'll work with Python, TensorFlow, 
-            and Keras, learning everything from basic algorithms to deep learning.
+          <p className="text-base sm:text-lg text-gray-700 mb-6">
+            Dive into the world of AI and Machine Learning with hands-on projects and practical knowledge! This course covers everything from the basics to advanced topics, including Python, TensorFlow, and Keras. Learn to build, train, and deploy your own AI models for real-world applications.
           </p>
 
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 mb-4">Skills You'll Gain</h3>
-          <ul className="list-disc pl-6 text-lg sm:text-xl md:text-2xl text-gray-700 mb-6">
-            <li>Hands-on experience with Python and AI frameworks</li>
-            <li>Mastering supervised and unsupervised learning</li>
-            <li>Building neural networks and deep learning models</li>
-            <li>Real-world applications in AI-driven industries</li>
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Skills You'll Gain</h3>
+          <ul className="list-disc pl-6 text-base sm:text-lg text-gray-700 mb-6 space-y-1">
+            <li>Python programming for AI</li>
+            <li>Supervised & Unsupervised Learning</li>
+            <li>Neural Networks & Deep Learning</li>
+            <li>Real-world AI project experience</li>
           </ul>
 
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 mb-4">Why Choose Us?</h3>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6">
-            This course is designed for both beginners and professionals looking to upgrade their skills. With expert instructors,
-            real-world examples, and practical exercises, you'll be ready to make an impact in the AI & ML space.
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Why Choose This Course?</h3>
+          <p className="text-base sm:text-lg text-gray-700 mb-6">
+            Designed for both beginners and professionals, our course features expert instructors, interactive lessons, and practical exercises to ensure you gain job-ready skills in AI & ML.
           </p>
 
-          {/* Learn More Button */}
-          <motion.div 
-            className="flex justify-center mt-8"
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-          >
+          {/* Enroll Button */}
+          <div className="flex justify-center mt-8">
             <a 
               href="https://3skill.shop/checkouts/cn/Z2NwLWFzaWEtc291dGhlYXN0MTowMUpUTjU4UjE4UkdUU1g5RUZGSEpLVDdZTQ"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-10 py-4 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 text-lg sm:text-xl md:text-2xl"
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:scale-105 hover:bg-blue-700 transition-all duration-300 text-lg"
             >
               Enroll Now
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </motion.div>
-
-      {/* Inline CSS for Glowing Effect */}
-      <style jsx>{`
-        @keyframes pulseGlow {
-          0% {
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
-          }
-          50% {
-            text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
-          }
-          100% {
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
-          }
-        }
-
-        .animate-pulse-glow {
-          animation: pulseGlow 2s infinite;
-        }
-      `}</style>
     </motion.div>
   );
 };

@@ -4,56 +4,51 @@ import { motion } from 'framer-motion';
 const DatascCr = () => {
   return (
     <motion.div 
-      className="w-full min-h-screen bg-gradient-to-r from-green-600 via-teal-600 to-blue-700 py-16 px-4"
+      className="w-full min-h-screen bg-gradient-to-br from-green-100 via-teal-100 to-blue-200 py-10 px-2"
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
-      transition={{ duration: 1.5 }} 
+      transition={{ duration: 1.2 }} 
     >
-      {/* Container for the course section */}
+      {/* Main Card */}
       <motion.div 
-        className="w-full max-w-5xl bg-white shadow-xl rounded-xl overflow-hidden mx-auto"
-        initial={{ scale: 0.95 }} 
+        className="w-full max-w-4xl bg-white shadow-lg rounded-2xl mx-auto overflow-hidden"
+        initial={{ scale: 0.97 }} 
         animate={{ scale: 1 }} 
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.6 }}
       >
-        
-        {/* Top Section with Image, Title, and Price */}
+        {/* Header Section */}
         <div className="relative">
-          <motion.img 
-            src="https://source.unsplash.com/1600x900/?data-science,analytics,machine-learning" 
+          <img 
+            src="https://datascience-hitechcity.com/wp-content/uploads/2022/11/37-The-Techniques-Team-and-Tools-for-Effective-Data-Science.jpg" 
             alt="Data Science & Analytics"
-            className="w-full h-96 object-cover rounded-t-xl sm:h-72 md:h-80 lg:h-96"
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ duration: 1, delay: 0.5 }}
+            className="w-full h-56 sm:h-64 md:h-80 object-cover rounded-t-2xl"
           />
-          <div className="absolute top-1/4 left-0 w-full text-center text-white px-6 sm:top-1/3 md:top-1/4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 animate-pulse-glow text-yellow-400">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 rounded-t-2xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow">
               Data Science & Analytics
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-200">Unlock the Power of Data</p>
-            <p className="text-md sm:text-lg md:text-xl font-medium mt-4 text-green-500">$149.99</p>
+            <p className="text-base sm:text-lg md:text-xl text-gray-100 font-medium">
+              Unlock the Power of Data
+            </p>
+            <span className="inline-block mt-3 px-4 py-1 bg-green-100 text-green-700 font-semibold rounded-full text-base shadow-sm w-fit">
+              $149.99
+            </span>
           </div>
         </div>
 
-        {/* Course Description Section */}
-        <motion.div 
-          className="p-8 bg-gradient-to-r from-gray-50 via-gray-100 to-gray-200"
-          initial={{ y: 30, opacity: 0 }} 
-          animate={{ y: 0, opacity: 1 }} 
-          transition={{ duration: 1, delay: 0.7 }}
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-800 mb-6">
+        {/* Course Content */}
+        <div className="p-6 sm:p-10 bg-gradient-to-br from-gray-50 via-gray-100 to-white">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4">
             What This Course Offers
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6">
+          <p className="text-base sm:text-lg text-gray-700 mb-6">
             Master the skills required to excel in the field of Data Science! This course covers everything from data wrangling,
             statistical analysis, and visualization to building predictive models and applying machine learning techniques.
             You'll work with industry-standard tools like Python, Pandas, Matplotlib, and Seaborn.
           </p>
 
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 mb-4">Skills You'll Gain</h3>
-          <ul className="list-disc pl-6 text-lg sm:text-xl md:text-2xl text-gray-700 mb-6">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Skills You'll Gain</h3>
+          <ul className="list-disc pl-6 text-base sm:text-lg text-gray-700 mb-6 space-y-1">
             <li>Data wrangling and cleaning with Python and Pandas</li>
             <li>Statistical analysis and hypothesis testing</li>
             <li>Building predictive models using machine learning algorithms</li>
@@ -61,50 +56,26 @@ const DatascCr = () => {
             <li>Real-world case studies and projects to apply your skills</li>
           </ul>
 
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-800 mb-4">Why Choose Us?</h3>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6">
+          <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">Why Choose This Course?</h3>
+          <p className="text-base sm:text-lg text-gray-700 mb-6">
             This course is designed for aspiring data scientists, analysts, and anyone looking to dive into data-driven decision-making.
             With expert guidance, hands-on projects, and access to real-world datasets, you will gain practical experience that will help you
             tackle complex data challenges.
           </p>
 
-          {/* Learn More Button */}
-          <motion.div 
-            className="flex justify-center mt-8"
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-          >
+          {/* Enroll Button */}
+          <div className="flex justify-center mt-8">
             <a 
-              href="https://www.coursera.org/learn/data-science"
+              href="https://3skill.shop/checkouts/cn/Z2NwLXVzLWVhc3QxOjAxSlZTVjNNUDFHSFczVlRNQlYzQ0Y4SEFX"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-10 py-4 bg-green-600 text-white font-semibold rounded-lg shadow-lg hover:bg-green-700 transition duration-300 text-lg sm:text-xl md:text-2xl"
+              className="px-8 py-3 bg-gradient-to-r from-green-600 via-teal-500 to-blue-600 text-white font-semibold rounded-lg shadow-md hover:scale-105 hover:bg-green-700 transition-all duration-300 text-lg"
             >
               Enroll Now
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </motion.div>
-
-      {/* Inline CSS for Glowing Effect */}
-      <style jsx>{`
-        @keyframes pulseGlow {
-          0% {
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
-          }
-          50% {
-            text-shadow: 0 0 10px #fff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff;
-          }
-          100% {
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
-          }
-        }
-
-        .animate-pulse-glow {
-          animation: pulseGlow 2s infinite;
-        }
-      `}</style>
     </motion.div>
   );
 };

@@ -8,7 +8,6 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
-
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
@@ -45,5 +44,6 @@
   },
   "bugs": {
     "url": "https://github.com/Animesh-Samantaray/animesh-skill/issues"
-  }
+  },
+  "homepage": "https://github.com/Animesh-Samantaray/animesh-skill#readme"
 }

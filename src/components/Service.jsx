@@ -1,17 +1,52 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Pic from '../assets/banner.png';
 import Slider from './Slider';
 import InternshipSection from './InternshipSection';
 import aiml from '../assets/aiml.png';
 import dataScience from '../assets/dataScience.png';
 import webdev from '../assets/web-dev.png';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
+import ThreeSkillAI from './3SkillAI';
+import Colab from './colab';
+import Aimlcrs from './courses/aimlcrs';
+import DatascCr from './courses/Datasccrs';
+import Webdevcrs from './courses/Webdevcrs';
+// Animation variants
 const fadeUp = {
   initial: { opacity: 0, y: 50 },
-  whileInView: { opacity: 1, y: 0 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: 50 },
   transition: { duration: 0.6, ease: 'easeOut' },
+};
+
+const cardVariants = {
+  initial: { opacity: 0, scale: 0.8, rotate: -5 },
+  animate: { opacity: 1, scale: 1, rotate: 0 },
+  whileHover: { scale: 1.08, rotate: 2, boxShadow: '0 8px 32px rgba(80,0,255,0.15)' },
+  transition: { type: 'spring', stiffness: 200, damping: 15 },
+};
+
+const sectionVariants = {
+  initial: { opacity: 0, x: -100 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 100 },
+  transition: { duration: 0.7, ease: 'easeInOut' },
+};
+
+const imgVariants = {
+  initial: { opacity: 0, scale: 0.7, rotate: -10 },
+  animate: { opacity: 1, scale: 1, rotate: 0 },
+  whileHover: { scale: 1.05, rotate: 5 },
+  transition: { duration: 0.7, type: 'spring', stiffness: 120 },
+};
+
+const buttonVariants = {
+  initial: { scale: 1, boxShadow: '0 0px 0px rgba(0,0,0,0)' },
+  whileHover: { scale: 1.1, boxShadow: '0 4px 24px rgba(128,0,255,0.25)' },
+  whileTap: { scale: 0.95 },
+  transition: { type: 'spring', stiffness: 300 },
 };
 
 const Service = () => {
@@ -66,88 +101,214 @@ const Service = () => {
     }
   ];
 
-  // URL of the Google Form
   const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeb7GSwJJlvJoB0F83qBGDxlJyJZW1Wb6JXb3Qfk5c10DDxvg/viewform";
 
   return (
-    <section className="bg-gray-100 py-16">
+    <motion.section
+      className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-20"
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={fadeUp}
+    >
       <motion.h2
-        className="text-4xl font-bold text-center text-black mb-16"
-        {...fadeUp}
-        viewport={{ once: true }}
+        className="text-3xl sm:text-4xl font-bold text-center text-black mb-12"
+        variants={fadeUp}
+        initial="initial"
+        animate="animate"
+        transition={{ duration: 0.7, delay: 0.1 }}
+        whileHover={{ scale: 1.05, color: "#7c3aed" }}
       >
-        Our Services
       </motion.h2>
 
+      <motion.p
+        className="text-center text-black mt-4 text-3xl mb-[30px] font-bold"
+        variants={fadeUp}
+        initial="initial"
+        animate="animate"
+        transition={{ duration: 0.7, delay: 0.2 }}
+      >
+        Our 1 month internship programs
+      </motion.p>
+
       {/* Service Cards */}
-      <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mb-16">
+      <motion.div
+        className="grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto mb-20"
+      >
         {cards.map((service, i) => (
           <motion.div
             key={i}
-            onClick={() => navigate(service.path)}
-            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 cursor-pointer"
-            whileHover={{ scale: 1.03 }}
-            {...fadeUp}
-            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 p-4 cursor-default flex flex-col items-center"
+            initial={{ opacity: 0, x: -150 + i * 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: i * 0.2, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.3 }}
+            whileHover={{ scale: 1.06, boxShadow: '0 8px 32px rgba(80,0,255,0.15)' }}
+            whileTap={{ scale: 0.97 }}
           >
-            <img src={service.img} className="w-full h-80 object-cover rounded-xl" alt={service.title} />
-            <h3 className={`text-2xl font-semibold text-center mt-6 ${service.color}`}>
+            <motion.img
+              src={service.img}
+              className="w-full h-60 sm:h-72 object-cover rounded-xl"
+              alt={service.title}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.1 + i * 0.2 }}
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{ scale: 1.08 }}
+            />
+            <motion.h3
+              className={`text-xl sm:text-2xl font-semibold text-center mt-4 ${service.color}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + i * 0.2, duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               {service.title}
-            </h3>
-            <p className="text-center text-gray-600 mt-3 text-lg">
+            </motion.h3>
+            <motion.p
+              className="text-center text-gray-600 mt-2 text-sm sm:text-base"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + i * 0.2, duration: 0.5 }}
+              viewport={{ once: true, amount: 0.3 }}
+            >
               {service.desc}
-            </p>
+            </motion.p>
+            <Link
+              to={service.path}
+              target="_blank"
+              className="mt-6 px-6 py-2 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 text-white font-semibold rounded-lg shadow-md hover:scale-105 transition-all duration-300"
+            >
+              Visit
+            </Link>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
+      <InternshipSection />
+
+      <Slider />
+      <ThreeSkillAI />
+      <Colab />
       {/* Detail Sections */}
       {detailSections.map((section, i) => (
         <motion.div
           key={i}
           onClick={() => navigate(section.path)}
-          className={`flex flex-col md:flex-row ${section.reverse ? 'md:flex-row-reverse' : ''} justify-center items-center gap-10 mb-16 cursor-pointer`}
-          {...fadeUp}
-          viewport={{ once: true }}
+          className={`flex flex-col ${section.reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center justify-center gap-8 mb-16 max-w-6xl mx-auto cursor-pointer`}
+          variants={sectionVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.7, delay: 0.2 + i * 0.2 }}
+          whileHover={{ scale: 1.02, boxShadow: '0 8px 32px rgba(0,0,0,0.10)' }}
         >
-          <img
+          <motion.img
             src={section.img}
             alt={section.title}
-            className="w-full max-w-xl h-96 object-cover rounded-xl shadow-lg"
+            className="w-full max-w-md sm:max-w-lg md:max-w-xl h-64 sm:h-80 md:h-96 object-cover rounded-xl shadow-md"
+            variants={imgVariants}
+            whileHover="whileHover"
+            transition={imgVariants.transition}
           />
-          <div className="text-left max-w-xl">
-            <h3 className="text-3xl font-bold text-black mb-4">{section.title}</h3>
-            <p className="text-xl text-gray-800">{section.desc}</p>
-          </div>
+          <motion.div
+            className="text-left px-4 md:px-0 max-w-xl"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 + i * 0.2, duration: 0.6 }}
+          >
+            <motion.h3
+              className="text-2xl sm:text-3xl font-bold text-black mb-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + i * 0.2, duration: 0.5 }}
+            >
+              {section.title}
+            </motion.h3>
+            <motion.p
+              className="text-base sm:text-lg text-gray-800"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + i * 0.2, duration: 0.5 }}
+            >
+              {section.desc}
+            </motion.p>
+          </motion.div>
         </motion.div>
       ))}
 
       {/* Internship Banner */}
       <motion.div
-        className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 bg-white p-8 rounded-2xl shadow-xl max-w-6xl mx-auto mt-12"
-        {...fadeUp}
-        viewport={{ once: true }}
+        className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 bg-white p-6 sm:p-8 rounded-2xl shadow-xl max-w-6xl mx-auto mt-12"
+        variants={fadeUp}
+        initial="initial"
+        animate="animate"
+        transition={{ duration: 0.7, delay: 0.2 }}
+        whileHover={{ scale: 1.01, boxShadow: '0 8px 32px rgba(128,0,255,0.10)' }}
       >
-        <div className="text-center md:text-left flex-1">
-          <h3 className="text-3xl font-bold text-black mb-4">
+        <motion.div
+          className="text-center md:text-left flex-1"
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <motion.h3
+            className="text-2xl sm:text-3xl font-bold text-black mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+          >
             🚀 Join 3skill as an Intern – Learn, Grow & Build Your Career (Free Internship)
-          </h3>
-          <button 
+          </motion.h3>
+          <motion.button
             className="mt-4 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition duration-300"
-            onClick={() => window.open(formUrl, "_blank")} // Open Google Form link in a new tab
+            onClick={() => window.open(formUrl, "_blank")}
+            variants={buttonVariants}
+            initial="initial"
+            whileHover="whileHover"
+            whileTap="whileTap"
+            transition={buttonVariants.transition}
           >
             Enroll Now
-          </button>
-        </div>
-        <div className="flex-1 flex justify-center">
-          <img src={Pic} alt="Internship Promotion" className="w-full max-w-sm rounded-xl object-cover shadow-lg" />
-        </div>
+          </motion.button>
+        </motion.div>
+        <motion.div
+          className="flex-1 flex justify-center"
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <motion.img
+            src={Pic}
+            alt="Internship Promotion"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-xl object-cover shadow-lg"
+            variants={imgVariants}
+            whileHover="whileHover"
+            transition={imgVariants.transition}
+          />
+        </motion.div>
       </motion.div>
 
       {/* Slider and InternshipSection */}
-      <Slider />
-      <InternshipSection />
-    </section>
+      <motion.div
+        className="mt-20 px-2"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
+        
+      </motion.div>
+      <motion.div
+        className="mt-16 px-2"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
+        
+      </motion.div>
+    </motion.section>
   );
 };
 
