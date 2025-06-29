@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { IoArrowBackSharp } from "react-icons/io5"; // Back icon
+import { IoArrowBackSharp } from "react-icons/io5";
 import Logo from "../assets/skill-logo.png";
 import "../App.css";
 
 const NavbarMenu = [
   { id: 1, title: "Home", path: "/", external: false },
   { id: 2, title: "Services", path: "/service", external: false },
-  {
-    id: 3,
-    title: "Courses",
-    path: "https://3skill.shop/collections/web-development-mastery-with-100-internship-govt-verified-certificate",
-    external: true,
-  },
-  { id: 4, title: "Contact Us", path: "/contact", external: false },
+  { id: 3, title: "About", path: "/about", external: false },
+  { id: 4, title: "Contact", path: "/contact", external: false },
+  { id: 5, title: "Team", path: "/team", external: false },
 ];
 
 const Navbar = () => {
@@ -36,27 +32,27 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="relative z-50 w-full bg-white shadow">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-gray-800/90 text-white shadow backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center gap-2">
           <img src={Logo} alt="Logo" className="h-10 w-auto" />
         </div>
 
-        {/* Back to Home (visible on all sizes if NOT on homepage) */}
+        {/* Back Icon Button (mobile only, not on homepage) */}
         {location.pathname !== "/" && (
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={goHome}
-              className="flex items-center gap-1 text-[#69a79c] hover:text-[#f7ba34] transition font-medium text-sm"
+              className="p-2 rounded-full bg-cyan-600/30 hover:bg-yellow-400 text-cyan-300 hover:text-gray-900 transition-all shadow-md"
+              title="Back to Home"
             >
               <IoArrowBackSharp className="text-xl" />
-              Back to Home
             </button>
           </div>
         )}
 
-        {/* Desktop Menu */}
+        {/* Desktop Nav */}
         <div className="hidden lg:flex gap-6 items-center">
           {NavbarMenu.map((menu) =>
             menu.external ? (
@@ -65,7 +61,7 @@ const Navbar = () => {
                 href={menu.path}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-800 hover:text-[#f7ba34] font-medium transition"
+                className="text-white hover:text-yellow-400 font-semibold px-2 py-1 rounded transition"
               >
                 {menu.title}
               </a>
@@ -73,7 +69,7 @@ const Navbar = () => {
               <Link
                 key={menu.id}
                 to={menu.path}
-                className="text-gray-800 hover:text-[#f7ba34] font-medium transition"
+                className="text-white hover:text-yellow-400 font-semibold px-2 py-1 rounded transition"
               >
                 {menu.title}
               </Link>
@@ -82,27 +78,27 @@ const Navbar = () => {
 
           <button
             onClick={signIn}
-            className="bg-[#f7ba34] hover:bg-[#69a79c] text-white font-semibold px-4 py-2 rounded-lg shadow transition"
+            className="bg-yellow-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg shadow transition"
           >
             Sign in
           </button>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Toggle */}
         <div className="lg:hidden">
           <button onClick={toggleMenu}>
             {isOpen ? (
-              <IoMdClose className="text-3xl text-gray-800" />
+              <IoMdClose className="text-3xl text-white" />
             ) : (
-              <IoMdMenu className="text-3xl text-gray-800" />
+              <IoMdMenu className="text-3xl text-white" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white px-6 py-4 shadow-md">
+        <div className="lg:hidden bg-gray-800/95 px-6 py-4 shadow-md">
           <ul className="flex flex-col gap-4">
             {NavbarMenu.map((menu) =>
               menu.external ? (
@@ -111,7 +107,7 @@ const Navbar = () => {
                     href={menu.path}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-gray-800 hover:text-[#f7ba34] font-medium"
+                    className="block text-white hover:text-yellow-400 font-semibold px-2 py-2 rounded transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {menu.title}
@@ -121,7 +117,7 @@ const Navbar = () => {
                 <li key={menu.id}>
                   <Link
                     to={menu.path}
-                    className="block text-gray-800 hover:text-[#f7ba34] font-medium"
+                    className="block text-white hover:text-yellow-400 font-semibold px-2 py-2 rounded transition"
                     onClick={() => setIsOpen(false)}
                   >
                     {menu.title}
@@ -132,7 +128,7 @@ const Navbar = () => {
             <li>
               <button
                 onClick={signIn}
-                className="w-full bg-[#f7ba34] hover:bg-[#69a79c] text-white font-semibold px-4 py-2 rounded-lg shadow transition"
+                className="w-full bg-yellow-400 hover:bg-cyan-500 text-gray-900 font-semibold px-4 py-2 rounded-lg shadow transition"
               >
                 Sign in
               </button>

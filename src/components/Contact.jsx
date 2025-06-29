@@ -1,76 +1,168 @@
-import React, { useState } from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import manager from "../assets/manager.jpg";
+import founder from "../assets/founder.jpg";
+import cofounder from "../assets/co-founder.jpg";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaInstagram,
+  FaLinkedin,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
+
+const contactDetails = [
+  {
+    label: "Phone",
+    value: ["+91 84579 60098", "+91 91241 46524", "+91 76818 98449"],
+    icon: <FaPhoneAlt className="text-green-400 text-2xl" />,
+    linkPrefix: "tel:",
+  },
+  {
+    label: "Email",
+    value: "techhubpvt.ltdcompany@gmail.com",
+    icon: <FaEnvelope className="text-blue-400 text-2xl" />,
+    link: "mailto:techhubpvt.ltdcompany@gmail.com",
+  },
+  {
+    label: "Instagram",
+    value: "@techhub.pvt.ltd",
+    icon: <FaInstagram className="text-pink-400 text-2xl" />,
+    link: "https://www.instagram.com/techhub.pvt.ltd",
+  },
+  {
+    label: "LinkedIn",
+    value: "TechHub Pvt. Ltd",
+    icon: <FaLinkedin className="text-sky-400 text-2xl" />,
+    link:
+      "https://www.linkedin.com/in/techhub-pvt-ltd-3a2423372?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+  },
+  {
+    label: "Locations",
+    value: ["Nilgiri, Balasore", "Jaydev Vihar, Bhubaneswar"],
+    icon: <FaMapMarkerAlt className="text-red-400 text-2xl" />,
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Er. Dibyajyoti Patra",
+    role: "Founder",
+    description: "GIS Software Engineer at Geonext Company",
+    image: founder,
+  },
+  {
+    name: "Himanshu Shekhar Mahakud",
+    role: "Co-Founder",
+    image: cofounder,
+  },
+  {
+    name: "Prabin Kumar Khandai",
+    role: "Manager",
+    image: manager,
+  },
+];
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.5, ease: "easeOut" },
+  }),
+};
 
 const Contact = () => {
-  const [messageSent, setMessageSent] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setMessageSent(true);
-    setTimeout(() => {
-      setMessageSent(false);
-    }, 3000);
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50 to-green-100 px-4 py-12">
-      <div className="w-full max-w-2xl bg-white border border-green-200 p-0 rounded-3xl shadow-2xl text-green-900">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-green-100 via-white to-green-50 rounded-t-3xl px-10 py-8 border-b border-green-100">
-          <h2 className="text-4xl font-extrabold text-center mb-2 tracking-tight text-green-700">
-            Contact Us
-          </h2>
-          <p className="text-center text-green-500 text-lg font-medium">
-            We'd love to hear from you. Fill out the form and our team will get in touch!
-          </p>
-        </div>
+    <section className="bg-gradient-to-b from-gray-900 via-gray-900 to-gray-800 py-20 px-4 sm:px-8 lg:px-24 min-h-screen">
+      <motion.h2
+        className="text-4xl font-bold text-center text-white mb-14"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        Contact Us
+      </motion.h2>
 
-        {/* Success Notification */}
-        {messageSent && (
-          <div className="mx-10 mt-6 mb-2 p-4 text-center text-white bg-gradient-to-r from-green-400 to-green-600 rounded-lg shadow">
-            Thank you for contacting us! We'll get back to you soon.
-          </div>
-        )}
-
-        {/* Form */}
-        <form className="space-y-7 px-10 py-8" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="bg-white border border-green-200 px-4 py-3 rounded-xl placeholder-green-400 text-green-900 focus:outline-none focus:ring-2 focus:ring-green-400 shadow-sm"
-              required
-            />
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="bg-white border border-green-200 px-4 py-3 rounded-xl placeholder-green-400 text-green-900 focus:outline-none focus:ring-2 focus:ring-green-400 shadow-sm"
-              required
-            />
-          </div>
-
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            className="w-full bg-white border border-green-200 px-4 py-3 rounded-xl placeholder-green-400 text-green-900 focus:outline-none focus:ring-2 focus:ring-green-400 shadow-sm"
-            required
-          />
-
-          <textarea
-            rows="5"
-            placeholder="Your Message"
-            className="w-full bg-white border border-green-200 px-4 py-3 rounded-xl placeholder-green-400 text-green-900 focus:outline-none focus:ring-2 focus:ring-green-400 shadow-sm"
-            required
-          ></textarea>
-
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-green-500 via-green-400 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-3 rounded-xl transition duration-300 shadow-lg hover:shadow-green-300/50 text-lg tracking-wide"
+      {/* Contact Info Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
+        {contactDetails.map((item, idx) => (
+          <motion.div
+            key={idx}
+            className="bg-gray-800 p-6 border border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all flex gap-4 items-start"
+            initial="hidden"
+            whileInView="visible"
+            variants={cardVariant}
+            custom={idx}
+            viewport={{ once: true }}
           >
-            Send Message 🚀
-          </button>
-        </form>
+            <div className="mt-1">{item.icon}</div>
+            <div>
+              <p className="text-sm text-gray-400 mb-1 font-medium">{item.label}</p>
+              {Array.isArray(item.value) ? (
+                item.value.map((v, i) => (
+                  <a
+                    key={i}
+                    href={item.linkPrefix ? `${item.linkPrefix}${v.replace(/\s/g, "")}` : undefined}
+                    className="block text-gray-100 text-base font-semibold hover:text-green-400"
+                  >
+                    {v}
+                  </a>
+                ))
+              ) : (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-100 text-base font-semibold hover:text-green-400"
+                >
+                  {item.value}
+                </a>
+              )}
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </div>
+
+      {/* Team Section */}
+      <motion.h3
+        className="text-3xl font-semibold text-center text-white mb-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        viewport={{ once: true }}
+      >
+        Meet Our Team
+      </motion.h3>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        {teamMembers.map((member, i) => (
+          <motion.div
+            key={i}
+            className="bg-gray-800 text-center p-6 border border-gray-700 rounded-xl shadow hover:shadow-lg transition-all"
+            initial="hidden"
+            whileInView="visible"
+            variants={cardVariant}
+            custom={i}
+            viewport={{ once: true }}
+          >
+            <motion.img
+              src={member.image}
+              alt={member.name}
+              className="w-28 h-28 object-cover rounded-full mx-auto mb-4 border-4 border-green-900 shadow-md"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200 }}
+            />
+            <h4 className="text-lg font-semibold text-gray-100">{member.name}</h4>
+            <p className="text-sm text-gray-400">{member.role}</p>
+            {member.description && (
+              <p className="text-xs text-gray-500 mt-2">{member.description}</p>
+            )}
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 };
 

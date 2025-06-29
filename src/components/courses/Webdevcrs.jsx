@@ -19,7 +19,7 @@ const Webdevcrs = () => {
         {/* Header Section */}
         <div className="relative">
           <img 
-            src="https://t3.ftcdn.net/jpg/08/71/60/32/360_F_871603234_fTMmjlUOpt4F9mDudj8wjyzkt0khEtSZ.jpg" 
+            src="https://spec.nith.ac.in/BLOGS/a1%20(5).jpg" 
             alt="Web Development Course"
             className="w-full h-56 sm:h-64 md:h-80 object-cover rounded-t-2xl"
           />
