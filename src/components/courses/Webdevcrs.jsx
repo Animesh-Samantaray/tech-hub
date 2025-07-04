@@ -62,13 +62,13 @@ const Webdevcrs = () => {
 
           {/* Enroll Button */}
           <div className="flex justify-center mt-8">
-            <a 
-              href="https://3skill.shop/checkouts/cn/Z2NwLXVzLWVhc3QxOjAxSlZTVjNNUDFHSFczVlRNQlYzQ0Y4SEFX" 
-              target="_blank" 
+           <a 
+              href="https://forms.gle/2TNsux1xt1cbL5ZY6"
+              target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:scale-105 hover:bg-blue-700 transition-all duration-300 text-lg"
+              className="px-8 py-3 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:scale-105 transition-all duration-300 text-lg"
             >
-              Enroll Now
+              Enroll Now 🚀
             </a>
           </div>
         </div>

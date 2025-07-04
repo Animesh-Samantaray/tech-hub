@@ -67,7 +67,9 @@ const AdvJava = () => {
           {/* CTA Button */}
           <div className="flex justify-center">
             <a 
-              href="#"
+              href="https://forms.gle/2TNsux1xt1cbL5ZY6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-600 text-white font-semibold rounded-lg shadow-md hover:scale-105 transition-all duration-300 text-lg"
             >
               Enroll Now 🚀
