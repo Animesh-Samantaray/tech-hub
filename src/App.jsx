@@ -18,7 +18,7 @@ import Team from './components/Team.jsx';
 import Navbar from './components/Navbar.jsx';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeContext } from './ThemeContext';
-import Courses from './components/courses.jsx';
+import Courses from './components/Course.jsx';
 function App() {
   const [theme, setTheme] = useState('dark');
 

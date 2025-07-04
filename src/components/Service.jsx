@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import Pic from '../assets/banner.png';
 import Internship from './InternshipSection';
-import Courses from './courses'; // ✅ make sure the file name is correct (capital "C")
+import Courses from './Course.jsx';
 import Colab from './colab';
 // Animations
 const fadeUp = {
