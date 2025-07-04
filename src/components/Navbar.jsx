@@ -4,13 +4,12 @@ import { useLocation, useNavigate, Link } from "react-router-dom";
 import { IoArrowBackSharp } from "react-icons/io5";
 import Logo from "../assets/skill-logo.png";
 import "../App.css";
-
 const NavbarMenu = [
   { id: 1, title: "Home", path: "/", external: false },
   { id: 2, title: "Services", path: "/service", external: false },
   { id: 3, title: "About", path: "/about", external: false },
   { id: 4, title: "Contact", path: "/contact", external: false },
-  { id: 5, title: "Team", path: "/team", external: false },
+  { id: 5, title: "Blog", path: "/blog", external: false },
 ];
 
 const Navbar = () => {

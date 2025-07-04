@@ -5,6 +5,7 @@ import './index.css';
 import Hero from './components/Hero';
 import Service from './components/Service';
 import Slider from './components/Slider';
+import Signup from './components/signup.jsx';
 import Advjava from './components/courses/AdvJava.jsx';
 import Webdev from './components/courses/Webdevcrs.jsx';
 import Python from './components/courses/Python.jsx';
@@ -16,9 +17,8 @@ import About from './components/About.jsx';
 import Team from './components/Team.jsx';
 import Navbar from './components/Navbar.jsx';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-
 import { ThemeContext } from './ThemeContext';
-
+import Courses from './components/courses.jsx';
 function App() {
   const [theme, setTheme] = useState('dark');
 
@@ -41,7 +41,7 @@ function App() {
                 <>
                   <Hero />
                   <Service />
-                  <Blog />
+                  <About />
                 </>
               }
             />
@@ -53,6 +53,9 @@ function App() {
             <Route path="/java" element={<Advjava />} />
             <Route path="/python" element={<Python />} />
             <Route path="/webdev" element={<Webdev />} />
+            <Route path="/courses" element={<Courses />} />
+             <Route path="/blog" element={<Blog />} />
+             <Route path="/signup" element={<Signup />} />
           </Routes>
           <Footer />
         </main>

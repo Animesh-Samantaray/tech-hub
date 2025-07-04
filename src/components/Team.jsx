@@ -36,21 +36,12 @@ const cardVariant = {
 };
 
 const Team = () => (
-  <section className="bg-gradient-to-br from-gray-900 via-gray-900 to-gray-800 py-20 px-4 sm:px-8 lg:px-24 min-h-screen">
-    <motion.h2
-      className="text-3xl sm:text-4xl font-bold text-center text-white mb-16"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      Meet Our Team
-    </motion.h2>
-
+  <section className="bg-gray-900 py-20 px-4 sm:px-8 lg:px-24">
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
       {teamMembers.map((member, idx) => (
         <motion.div
           key={idx}
-          className="bg-gray-800 rounded-xl border border-gray-700 p-8 text-center shadow-sm hover:shadow-lg transition-shadow duration-300"
+          className="bg-gray-800 rounded-xl border border-gray-700 p-8 text-center shadow-md hover:shadow-purple-500/20 transition-shadow duration-300"
           custom={idx}
           initial="hidden"
           whileInView="visible"
@@ -60,9 +51,9 @@ const Team = () => (
           <motion.img
             src={member.img}
             alt={member.name}
-            className="w-32 h-32 sm:w-36 sm:h-36 mx-auto rounded-full object-cover border-4 border-purple-500 shadow-lg mb-5"
+            className="w-32 h-32 sm:w-36 sm:h-36 mx-auto rounded-full object-cover border-4 border-purple-500 shadow-md mb-5"
             whileHover={{ scale: 1.08 }}
-            transition={{ type: "spring", stiffness: 180 }}
+            transition={{ type: "spring", stiffness: 200 }}
           />
           <h3 className="text-xl font-semibold text-white">{member.name}</h3>
           <p className="text-sm text-purple-300 mt-1">{member.role}</p>

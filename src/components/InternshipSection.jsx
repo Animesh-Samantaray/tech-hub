@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
+import free from '../assets/free.png';
 
-// The Google Form URL
 const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeb7GSwJJlvJoB0F83qBGDxlJyJZW1Wb6JXb3Qfk5c10DDxvg/viewform";
 
 const InternshipSection = () => {
@@ -10,27 +10,50 @@ const InternshipSection = () => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
-      className="w-full mt-10 bg-white rounded-2xl shadow-xl px-2 py-6 sm:p-6 flex flex-col md:flex-row items-center gap-6 sm:gap-10 max-w-6xl mx-auto"
+      className="w-full mt-14 bg-gray-800 rounded-2xl shadow-xl px-4 py-10 sm:px-8 flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto"
     >
-      {/* Animated Image */}
-      <motion.img
-        src="https://3skill.shop/cdn/shop/files/ChatGPT_Image_Apr_23_2025_05_03_51_PM.png?v=1745408727&width=750"
-        alt="Internship Visual"
-        initial={{ scale: 0.9, opacity: 0 }}
+      {/* Image */}
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="w-full max-w-xs sm:max-w-sm md:max-w-[350px] h-48 sm:h-64 md:h-[350px] object-cover rounded-2xl shadow-2xl border-2 border-purple-400"
-      />
+        className="w-full md:w-[50%]"
+      >
+        <div className="aspect-[16/9] w-full rounded-2xl overflow-hidden border-2 border-purple-500 shadow-2xl">
+          <img
+            src={free}
+            alt="Internship Visual"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
 
-      {/* Text Content */}
+      {/* Text */}
       <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
-          🚀 Join 3skill as an Intern – Learn, Grow & Build Your Career (Free Internship)
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug mb-3">
+          🚀 Join <span className="text-purple-400">TechHub</span> as an Intern
         </h2>
+
+        <ul className="text-gray-300 text-base sm:text-lg space-y-1 mb-5">
+          <li>✅ <span className="text-white font-semibold">100% Internship Guarantee</span></li>
+          <li>🎯 <span className="text-white font-semibold">95% Placement Assistance</span></li>
+        </ul>
+
+        {/* Pricing */}
+        <div className="mb-6">
+          <p className="text-gray-400 text-lg sm:text-xl font-medium">
+            Actual Price:{" "}
+            <span className="line-through text-red-400 font-semibold">₹5999</span>
+            <span className="ml-2 bg-green-600 text-white px-3 py-1 rounded-lg font-bold animate-pulse shadow-md">
+              Now Free!
+            </span>
+          </p>
+        </div>
+
         <button
-          className="mt-4 px-5 py-2.5 sm:px-6 sm:py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition duration-300 text-base sm:text-lg"
           onClick={() => window.open(formUrl, "_blank")}
+          className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition duration-300 text-base sm:text-lg shadow-lg"
         >
           Enroll Now
         </button>
