@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import paytm from "../assets/paytm.jpg";
 import gonext from "../assets/gonext.jpg";
 import leaserbim from "../assets/leaserbim.jpg";
-
-const logos = [paytm, gonext, leaserbim];
+import connect from "../assets/connect.jpg";
+import concentrix from "../assets/concentrix.jpg";
+const logos = [paytm, gonext, leaserbim,connect , concentrix];
 
 const Colab = () => {
   const marqueeRef = useRef(null);

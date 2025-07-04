@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import free from '../assets/free.png';
 
-const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeb7GSwJJlvJoB0F83qBGDxlJyJZW1Wb6JXb3Qfk5c10DDxvg/viewform";
+const formUrl = "https://forms.gle/2TNsux1xt1cbL5ZY6";
 
 const InternshipSection = () => {
+  const handleEnrollClick = () => {
+    window.open(formUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -100 }}
@@ -12,7 +16,7 @@ const InternshipSection = () => {
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="w-full mt-14 bg-gray-800 rounded-2xl shadow-xl px-4 py-10 sm:px-8 flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto"
     >
-      {/* Image */}
+      {/* Image Section */}
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
@@ -29,7 +33,7 @@ const InternshipSection = () => {
         </div>
       </motion.div>
 
-      {/* Text */}
+      {/* Text Section */}
       <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug mb-3">
           🚀 Join <span className="text-purple-400">TechHub</span> as an Intern
@@ -40,7 +44,7 @@ const InternshipSection = () => {
           <li>🎯 <span className="text-white font-semibold">95% Placement Assistance</span></li>
         </ul>
 
-        {/* Pricing */}
+        {/* Pricing Info */}
         <div className="mb-6">
           <p className="text-gray-400 text-lg sm:text-xl font-medium">
             Actual Price:{" "}
@@ -51,8 +55,9 @@ const InternshipSection = () => {
           </p>
         </div>
 
+        {/* CTA Button */}
         <button
-          onClick={() => window.open(formUrl, "_blank")}
+          onClick={handleEnrollClick}
           className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition duration-300 text-base sm:text-lg shadow-lg"
         >
           Enroll Now
